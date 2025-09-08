@@ -6,7 +6,7 @@ A hands-on repository for learning core JavaScript concepts with small, focused 
 - `fundamentals-1/`
   - Intro topics: values/variables, data types, let/const, strings, if/else, logical operators, type conversion/coercion, equality operators, switch, ternary, and small challenges (BMI, team averages, tip calculator).
 - `fundamentals-2/`
-  - Next topics: strict mode, functions (declaration/expression/arrow), functions calling functions, arrays and common methods, objects (dot vs bracket, methods, this), and loops (for).
+  - Next topics: strict mode, functions (declaration/expression/arrow), functions calling functions, arrays and common methods, objects (dot vs bracket, methods, this), and loops (for, backwards, nested). Includes comprehensive exercises: team score comparisons, tip calculator with arrays, BMI object methods, voting simulation, and population calculations.
 
 See each folder's `README.md` for details specific to that part.
 
