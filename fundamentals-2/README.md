@@ -11,13 +11,22 @@ This part focuses on functions, arrays, objects, and iteration. Topics covered h
 - **Objects**: literals, reading/updating properties (dot vs bracket)
 - Prompts/guarding input when reading dynamic keys
 - **Object methods** and `this` (computing derived data, summaries)
-- **Loops**: `for` loop basics (current active section logs repetitions)
+- **Loops**: `for` loop basics, looping arrays, backwards loops, nested loops
+
+### Exercises & Challenges
+- **Function assignments**: `describeCountry()`, `percentageOfWorld()` variations
+- **Challenge #1**: Team average scores comparison (Dolphins vs Koalas) with multiple solutions
+- **Array exercises**: Population calculations, neighbor country operations
+- **Object exercises**: Country object with methods (`describe()`, `checkIsland()`)
+- **Challenge #2**: Tip calculator with arrays (bills, tips, totals)
+- **Challenge #3**: BMI comparison between Mark and John using object methods
+- **Loop exercises**: Voting simulation, population percentage calculations, nested neighbor loops
 
 Note: Fundamentals‑1 topics like values/variables, coercion/equality, basic conditionals, etc., are documented in `fundamentals-1/README.md` and are not repeated here.
 
 ### Files
 - `index.html`: Minimal HTML that loads the Fundamentals‑2 script.
-- `script.js`: All examples for this section. Most earlier blocks are commented out; the final “Iteration: for loop” section is active.
+- `script.js`: All examples for this section. Most content is commented out; uncomment specific sections to run them.
 
 ### How to run
 1. Open `index.html` in a browser (or use a local server like VS Code Live Server).

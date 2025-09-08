@@ -1,309 +1,319 @@
-/*
+/*// FUNCTIONS ASSIGNINMENT 
 
-//Activating Strict Mode
-
-'use strict';
-
-let hasdriversLicense = false;
-const passTest = true;
-
-if (passTest) hasdriversLicense = true;
-if (hasdriversLicense) console.log('I can drive');
-
-// const interface = 'Audio'
-// const private = 534;
-
-
-
-// Functions
-
-function logger() {
-    console.log('My name is Max');
+function describeCountry (country , population, capitalCity){
+    return `${country} has ${population} million people , and its capital city is ${capitalCity}`
 }
 
-// calling / running / invoking function
-logger();
-logger();
-logger();
+const descFinland = describeCountry('Finland',10 , 'Helsinki');
+const descPortugal = describeCountry('Portugal', 33,'Lisbon');
 
-function fruitProcessor(apples, oranges) {
-    const juice = (`Juice with ${apples} apples and ${oranges} oranges.`);
-    return juice;
+console.log(descFinland);
+console.log(descPortugal);
+
+
+//Functions Declarations and Expressions 
+
+//Declaration function
+function percentageOfWorld1(population){
+    return 7900 / population ;
 }
 
-const appleJuice = fruitProcessor(5, 0);
-console.log(appleJuice);
+const percChina = percentageOfWorld1(33);
+console.log(percChina);
 
-const appleOrangeJuice = fruitProcessor(2, 4);
-console.log(appleOrangeJuice);
-
-const num = Number('23');
-
-
-// Function Declarations vs. Expressions
-
-//Function DECLARATION - function is defined with name and this declaration can be called before the function is defined 
-function calcAge1(birtday) {
-    return 2037 - birtday ;
+//Expression function
+const percentageOfWolrd2 = function(population) {
+    return 7900 / population ;
 }
-const age1 = calcAge1(1991);
-console.log(age1);
+const percPortugal = percentageOfWolrd2(100);
+console.log(percPortugal, percChina);
 
-//Function EXPRESSION - anonymous function (expression produce values !!!) this cannot be called before 
-const calcAge2 = function(birtday){
-    return 2037 - birtday;
-}
 
-const age2 = calcAge2(1991);
-console.log(age1, age2);
 
-// Arrow functions
-const calcAge3 = birthYear => 2037 - birthYear;
-const age3 = calcAge3(1991);
-console.log(age3);
+//Arrow Functions
+const percentageOfWolrd3 = population => 7900 / population
+const percPortugal2 = percentageOfWolrd3(100)
+console.log(percPortugal2)
 
-const yearsUntilRetirement = (birthYear, firstName) => {
-    const age = 2037 - birthYear;
-    const retirement = 65 - age ;
-    // return retirement;
-    return `${firstName} retires in ${retirement} years`;
-}
 
-console.log(yearsUntilRetirement(1991, 'Max'));
-console.log(yearsUntilRetirement(1987, 'Bob'));
+const percentageOfWolrd4 = population => (7900 / population) * 100
+const percChina2 = percentageOfWolrd4(33)
+console.log(percChina2)
 
 
 //Functions Calling Other Functions
 
-function cutFruitPieces(fruit){
-    return fruit * 4
+const describePopulation = function (country, population) {
+    const percentage = percentageOfWolrd4 ;
+    const descreption = `${country} has ${population} million people, wich is about ${percentageOfWolrd4} of the world`
+    console.log(descreption) ;
 }
 
-function fruitProcessor(apples, oranges) {
-    const applePieces = cutFruitPieces(apples);
-    const orangePieces = cutFruitPieces(oranges);
+describePopulation('China', 66);
+
+
+// CHALLENGE #1 SECTION 2 - FUNDAMENTALS
+
+const calcAverage = function (...scores) {
+    const sum = scores.reduce((acc, val) => acc + val, 0);
+    return sum / scores.length;
+};
+
+const avgDolphins = calcAverage(50, 80, 50, 10, 10, 10);
+const avgKoalas = calcAverage(80, 60, 100, 20, 20, 60);
+
+
+function checkWinner(avgDolphins, avgKoalas) {
+    const resultDolphins = avgDolphins * 2;
+    const resultKoalas = avgKoalas * 2;
+
+    if (resultDolphins >= avgKoalas) {
+
+        return {
+            winner: 'Dolphins',
+            dolphins: resultDolphins,
+            koalas: avgKoalas,
+        };
+
+    }
     
-    const juice = (`Juice with ${applePieces} pieces of apples and ${orangePieces} pieces oranges.`);
-    return juice;
+    if (resultKoalas >= avgDolphins) {
+
+        return {
+            winner: 'Koalas',
+            dolphins: avgDolphins,
+            koalas: resultKoalas,
+        };
+    }
+
+    return {
+        winner: 'none',
+        dolphins: avgDolphins,
+        koalas: avgKoalas,
+    };
 }
-console.log(fruitProcessor(2, 3));
+const winner = checkWinner(avgDolphins, avgKoalas);
+console.log('Winner result:', winner.winner);
 
+// CHALLENGE #1 SECTION 2 - FUNDAMENTALS Jonas solution`
 
-// Reviewing Functions
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+console.log('average score', calcAverage(3, 4, 4));
 
-const calAge = function (birthYear) {
-    return 2037 - birthYear;
-}
+// test  data 1
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(65, 54, 49);
+console.log('store average score', scoreDolphins, scoreKoalas);
 
-const yearsUntilRetirement = function (birthYear, firstName) {
-    const age = calAge(birthYear);
-    const retirement = 65 - age;
-
-    if (retirement > 0) {
-        console.log(`${firstName} retires in ${retirement} years`);
-        return retirement;
-
+const checkWinner = function (avgDolphins, avgKoalas) {
+    if (avgDolphins >= 2 * avgKoalas) {
+        console.log(`Dolphins win 🏆 (${avgDolphins} vs. ${avgKoalas})`);
+    } else if (avgKoalas >= 2 * avgDolphins) {
+        console.log(`Koalas win 🏆 (${avgKoalas} vs. ${avgDolphins})`);
     } else {
-        console.log(`${firstName} has already retired`);
-        return -1;
+        console.log('No team wins...');
     }
 }
+checkWinner(scoreDolphins, scoreKoalas);
 
+//test data 2
 
-console.log(yearsUntilRetirement(1991, 'Max'));
-console.log(yearsUntilRetirement(1950, 'Bob'));
-
-
+scoreDolphins = calcAverage(85, 54, 41);
+scoreKoalas = calcAverage(23, 34, 27);
+checkWinner(scoreDolphins, scoreKoalas);
 
 // Introduction to Arrays
-
-const friend1 = 'Michael';
-const friend2 = 'Steven';
-const friend3 = 'Peter';
-
-const friends = ['Michael', 'Steven', 'Peter'];
-console.log(friends);
-
-const y = new Array(1991, 1984, 2008, 2020);
-
-console.log(friends[0]);
-console.log(friends[2]);
-
-console.log(friends.length);
-console.log(friends[friends.length - 1]);  // index to get the last element on the array 
-
-friends[2] = 'Jay'
-console.log(friends);
-
-const firstName = 'Max'
-const jonas = [firstName, 'Mendes', 2025 - 1991, 'teacher', friends]
-console.log(jonas);
-console.log(jonas.length);
-
-//Exercise
-const calcAge = function (birthYear) {
-    return 2037 - birthYear;
+function percentageOfWorld1(population) {
+    return 7900 / population;
 }
 
-const years =[1990, 1967, 2002, 2010, 2018];
-
-const age1 = calcAge(years[0]);
-const age2 = calcAge(years[1]);
-const age3 = calcAge(years[years.length - 1]);
-console.log(age1, age2, age3);
-
-const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
-console.log(ages);
-
-
-
-//Basic Array Operations(Methods)
-
-const friends = ['Michael', 'Steven', 'Peter'];
-
-
-//Add elements
-const newLenght = friends.push('Jay');// add elements to the end of the array
-console.log(friends);
-console.log(newLenght);
-
-friends.unshift('John'); // add elements to the beginning of the array 
-console.log(friends);
-
-// Remove elements
-friends.pop();// remove last
-const pooped = friends.pop();// returns the remooved element 
-console.log(pooped);
-console.log(friends);
-
-friends.shift(); // removes the first element of the array  
-console.log(friends)
-
-console.log(friends.indexOf('Steven')); //  tell the position of the element in the array
-console.log(friends.indexOf('Steve'));
-
-friends.push(23);
-console.log(friends.includes('Steven')); //return a boolean
-console.log(friends.includes('bob'));  
-console.log(friends.includes(23));
-
-if (friends.includes('Steven')){
-    console.log('You have a friend called Steven');
-}
-
-
-// Introduction to Objects
-
-const jonasArray = [
-    'Jonas',
-    'Schmedtmann',
-    2037 - 1991,
-    'teacher',
-    ['Michael', 'Peter', 'Steven']
+const populations = [10, 1441, 332, 83];
+console.log(populations.length === 4);
+const percentages = [
+    percentageOfWorld1(populations[0]),
+    percentageOfWorld1(populations[1]),
+    percentageOfWorld1(populations[2]),
+    percentageOfWorld1(populations[3])
 ];
 
-//object literal syntax
-const jonas = {
-    firstName: 'Jonas',
-    lastName: 'Mendes',
-    age: 2037 - 1991,
-    job: 'teacher',
-    friends: ['Michael', 'Peter', 'Steven']
-};
-console.log(jonas);
+console.log(percentages);
 
 
+//Basic Array Operations (Methods)
 
-// Dot vs. Bracket Notation 
-const jonas = {
-    firstName: 'Jonas',
-    lastName: 'Mendes',
-    age: 2037 - 1991,
-    job: 'teacher',
-    friends: ['Michael', 'Peter', 'Steven']
-};
+const neighbours = ['Portugal', 'Spain', 'France', 'Acores'];
 
-console.log(jonas.lastName); // get the value inside of the object 
-console.log(jonas['lastName']);  
+const newNeighbor = neighbours.push('Utopia');
+console.log(neighbours);
 
-// when we need to retrieve two values or more from a object 
-const nameKey = 'Name'; // use a variavel to get  values inside of the object
-console.log(jonas['first' + nameKey]);// get value inside of the object using an expression 
-console.log(jonas['last' + nameKey]);
+neighbours.pop();
+console.log(neighbours);
 
-const interestedIn = prompt('What do you want to know about Jonas? Choose between first name , last name, age, job, friends');
+if(!neighbours.includes('Germany')){
+    console.log('Probably not a central european country :D');
+}
 
+neighbours[neighbours.indexOf('Sweden')] = 'Republic of Sweden;';
+console.log(neighbours);
 
-if (jonas[interestedIn]) {
-    console.log(jonas[interestedIn]);
-}else{
-    console.log('WRONG request!Choose between first name , last name, age, job, friends!');
-};
+//Introduction to Objects﻿
 
-// add propreties to the object 
+myCountry = {
+    country: 'Portugal',
+    capital: 'Lisbon',
+    languague: 'Portuguese',
+    population: 33,
+    neighbors: ['Spain', 'Acores', 'Madeira']
+}
 
-jonas.location = 'Portugal';
-jonas['twitter'] = '@jonas';
-console.log(jonas);
+//Dot vs.Bracket Notation
 
-//challange
-//'Jonas has 3 friends , and his best friend is called Michael'
-console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length}  neighbouring countries and a capital called ${myCountry.capital}.`)
 
+myCountry.population += 2;
+console.log(myCountry.population);
 
-// Object Methods
-const jonas = {
-    firstName: 'Jonas',
-    lastName: 'Mendes',
-    birthYear: 1991,
-    job: 'teacher',
-    friends: ['Michael', 'Peter', 'Steven'],
-    hasDriverLicense: true,
+myCountry['population'] -= 2;
+console.log(myCountry.population)
 
-    // calcAge: function(birthYear){
-    //     return 2037 - 1991;
-    // }
-    // calcAge: function () {
-    //     // console.log(this);
-    //   return 2037 - this.birthYear;
-    // }
+//Object Methods
 
-    calcAge: function () {
-        this.age = 2037 - this.birthYear
-        return this.age;
+myCountry = {
+    country: 'Portugal',
+    capital: 'Lisbon',
+    languague: 'Portuguese',
+    population: 33,
+    neighbors: ['Spain', 'Acores', 'Madeira'],
+    describre: function() {
+        console.log(`${this.country} has ${this.population} million ${this.languague}-speaking people, ${this.neighbors.length} neighbouring countries and a capital called ${this.capital}.`)
     },
 
-    getSummary: function() {
-        return `${this.firstName} is a ${this.calcAge()} -years old, ${jonas.job} , and he has ${this.hasDriverLicense ? 'a' : 'no'} driver's license.`
+    checkIsland: function () {
+        this.isIsland = this.neighbors.length === 0 ? true : false;
     }
-};
-
-// console.log(jonas.calcAge());
-
-// console.log(jonas.age());
-// console.log(jonas.age());
-// console.log(jonas.age());
-
-//challange
-//'Jonas is a 46 years old teacher, and he has a driver license'
-console.log(jonas.getSummary());
-*/
-
-// Iteration: The for Loop
-
-// console.log('Lifting weights repetition 1');
-// console.log('Lifting weights repetition 2');
-// console.log('Lifting weights repetition 3');
-// console.log('Lifting weights repetition 4');
-// console.log('Lifting weights repetition 5');
-// console.log('Lifting weights repetition 6');
-// console.log('Lifting weights repetition 7');
-// console.log('Lifting weights repetition 8');
-// console.log('Lifting weights repetition 9');
-// console.log('Lifting weights repetition 10');
-
-
-// for loop keeps running while condition is TRUE
-for(let rep = 1; rep <= 10; rep ++){
-    console.log(`Lifting weights repetitio ${rep}`);
 }
+
+myCountry.describre();
+myCountry.checkIsland();
+
+console.log(myCountry);
+
+
+//CHALLENGE #2 -Fundamentals part 2
+// const tip = (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
+
+const calcTip = function (bill) {
+    if (bill >= 50 && bill <= 300) {
+        return bill * 0.15;
+
+    } else
+    return bill * 0.20;
+}
+
+console.log(calcTip(300))
+
+
+const bills = [125, 555, 44];
+const tips = [(calcTip(bills[0])), calcTip(bills[1]), calcTip(bills[2])];
+console.log(bills, tips)
+
+const totals = [(bills[0] + tips[0]), (bills[1] + tips[1]), (bills[2] + tips[2])];
+console.log(totals)
+
+CHALLENGE #2 -Fundamentals part 2 JONAS SOLUTION
+const calcTip = function(bill){
+    return bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.20;    
+}
+//arrow function 
+// const calTip = bill => bill >= 50 %% bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+const bills = [125, 555, 44];
+const tips = [(calcTip(bills[0])), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [bills[0] + tips[0], bills[0]+ tips[0], bills[0] + tips[0]];
+console.log(bills, tips, totals);
+
+
+//CHALLENGE #3 - Fundamentals part 2
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 72,
+    height: 1.71,
+
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi;
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+
+    calcBMI: function() {
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi;
+    } 
+}
+
+mark.calcBMI();
+john.calcBMI();
+if (mark.bmi > john.bmi){
+    winner = mark
+    loser = john
+    } else {
+    winner = john
+    loser = mark
+}
+console.log(`${winner.fullName}'s BMI (${winner.bmi.toFixed()}) is higher than ${loser.fullName}'s (${loser.bmi.toFixed()})!`);
+
+
+//Iteration: The for Loop    'Voter number 1 is currently voting'.
+
+for( let vote = 1; vote <= 50; vote++){
+    console.log(`Voter number ${vote} is currently voting`);
+}
+
+//Looping Arrays, Breaking and Continuing
+
+const populations = [10, 1441, 332, 83];
+const percentages2= [];
+
+function percentageOfWorld1(population) {
+    return 7900 / population;
+}
+
+console.log(populations.length === 4);
+const percentages = [
+    percentageOfWorld1(populations[0]),
+    percentageOfWorld1(populations[1]),
+    percentageOfWorld1(populations[2]),
+    percentageOfWorld1(populations[3])
+];
+
+console.log(percentages);
+
+for( let i = 0; i < populations.length; i++){
+    const perc = percentageOfWorld1(populations[i]);
+    percentages2.push(perc);
+}
+console.log(percentages2);
+
+
+//Looping Backwards and Loops in Loops
+
+const listOfNeighbors = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+
+for (let i = 0; i < listOfNeighbors.length; i++){
+    for (let y = 0; y < listOfNeighbors[i].length; y++)
+        console.log(`Neighbors: ${listOfNeighbors[i][y]}`);
+}
+*/    
+
+
+
+
+
+
+
