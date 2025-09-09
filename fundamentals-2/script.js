@@ -309,11 +309,34 @@ for (let i = 0; i < listOfNeighbors.length; i++){
     for (let y = 0; y < listOfNeighbors[i].length; y++)
         console.log(`Neighbors: ${listOfNeighbors[i][y]}`);
 }
-*/    
+
+
+//CHALLENGE #4 - Fundamentals part 2
+
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const total = [];
+
+for ( let i = 0; i < bills.length; i++){
+    tips.push(calcTip(bills[i])); 
+    total.push(bills[i] + tips[i]);
+}
+console.log("Tips:", tips);
+console.log("Totals:", total);
 
 
 
+let sum = 0;
+const totals =[26.4, 339.25, 202.4, 528, 44.4, 120.75, 12, 1320, 98.9, 59.8];
 
+for ( a = 0 ; a < totals.length; a++){
+    (sum = sum + totals[a])
 
-
-
+}
+console.log(sum / totals.length);
+*/
