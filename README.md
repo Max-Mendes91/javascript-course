@@ -9,6 +9,8 @@ A hands-on repository for learning core JavaScript concepts with small, focused 
   - Next topics: strict mode, functions (declaration/expression/arrow), functions calling functions, arrays and common methods, objects (dot vs bracket, methods, this), and loops (for, backwards, nested). Includes comprehensive exercises: team score comparisons, tip calculator with arrays, BMI object methods, voting simulation, and population calculations.
 - `Developer Skilss & Editor Set Up/`
   - Developer skills challenge: forecast printer (`printForecast`) that formats an array of temperatures into a single output string using a step-by-step problem‑solving approach.
+- `GuessMyNumber/`
+  - Mini project: a number guessing game (1–20) practicing DOM manipulation, event handling, basic state management (`score`, `highScore`), and simple UI feedback.
 
 See each folder's `README.md` for details specific to that part.
 
@@ -17,7 +19,7 @@ See each folder's `README.md` for details specific to that part.
 - Optional: a local server (e.g., VS Code Live Server) for convenience
 
 ## How to run
-1. Open a folder (e.g., `fundamentals-1/`, `fundamentals-2/`, or `Developer Skilss & Editor Set Up/`).
+1. Open a folder (e.g., `fundamentals-1/`, `fundamentals-2/`, `Developer Skilss & Editor Set Up/`, or `GuessMyNumber/`).
 2. Open `index.html` in a browser.
 3. Open DevTools Console to view output.
 4. Uncomment specific sections in the corresponding `script.js` to run them (most files group topics in blocks). To avoid variable re-declaration errors, run one block at a time or wrap sections in their own scope `{ ... }`/function.
