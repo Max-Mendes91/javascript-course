@@ -14,9 +14,20 @@ console.log(document.querySelector('.guess').value); // get the value of input
 */
 
 // state variable - all the data that is relevant for the app
+
 let highScore = 0;
-let score = 20; 
+let score = 20;
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
+const displayMessage = function (message) {
+    document.querySelector('.message').textContent = message;
+}
+const displayScore = function (score) {
+    document.querySelector('.score').textContent
+}
+const displayNumber = function (number) {
+    document.querySelector('.number').textContent = number;
+}
+
 
 // Coding Challenge #1
 
@@ -31,10 +42,10 @@ Implement a game rest functionality, so that the player can make a new guess! He
 */
 document.querySelector('.again').addEventListener('click', function () {
     score = 20
-    document.querySelector('.score').textContent = score;
+    displayScore(score);
     secretNumber = Math.trunc(Math.random() * 20) + 1;
     document.querySelector('.message').textContent = 'Start guessing...';
-    document.querySelector('.number').textContent = '?';
+    displayNumber('?');
     document.querySelector('.guess').value = '';
     document.querySelector('body').style.backgroundColor = '#222';
     document.querySelector('.number').style.width = '15rem';
@@ -43,18 +54,19 @@ document.querySelector('.again').addEventListener('click', function () {
 
 
 // <-----code bellow done with Jonas------>
+
 document.querySelector('.check').addEventListener('click', function () {
     const guess = Number(document.querySelector('.guess').value);
     console.log(guess, typeof guess);
 
     //when is no input
     if (!guess) {
-        document.querySelector('.message').textContent = '🛑 No number';
+        displayMessage('🛑 No number')
 
-        // when player wins    
+    // when player wins    
     } else if (guess === secretNumber) {
-        document.querySelector('.message').textContent = '🎉 Correct Number!';
-        document.querySelector('.number').textContent = secretNumber;// state variable - all the data that is relevant for the app
+        displayMessage('🎉 Correct Number!')
+        displayNumber(secretNumber);// state variable - all the data that is relevant for the app
 
 
 
@@ -62,36 +74,21 @@ document.querySelector('.check').addEventListener('click', function () {
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
         
-        // implement the highscore to stay in the result saved 
+
+        // implement the highscore to stay in the result saved
         if (score > highScore) {
             highScore = score;
             document.querySelector('.highscore').textContent = highScore;
         }
 
-        // when guess is to high    
-    } else if (guess > secretNumber) {
-
+    //when guess is wrong  (cleaning code with the dry rule - NO REPEATED CODE) 
+    } else if (guess !== secretNumber) {
         if (score > 1) {
-            document.querySelector('.message').textContent = '📈 To High!'
-            document.querySelector('.score').textContent = score--;
+            displayMessage(guess > secretNumber ? '📈 To High!' : '📉 To Low!')
+            displayScore(score--);
         } else {
-            document.querySelector('.message').textContent = '💥 You lost the game'
-            document.querySelector('.score').textContent = 0;
-        }
-
-        // when guess is to low    
-    } else if (guess < secretNumber) {
-
-        if (score > 1) {
-            document.querySelector('.message').textContent = '📉 To Low!'
-            document.querySelector('.score').textContent = score--;
-        } else {
-            document.querySelector('.message').textContent = '💥 You lost the game'
-            document.querySelector('.score').textContent = 0;
+            displayMessage('💥 You lost the game')
+            displayScore('0');
         }
     }
 });
-
-
-
-
