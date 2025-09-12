@@ -11,6 +11,8 @@ A hands-on repository for learning core JavaScript concepts with small, focused 
   - Developer skills challenge: forecast printer (`printForecast`) that formats an array of temperatures into a single output string using a step-by-step problem‑solving approach.
 - `GuessMyNumber/`
   - Mini project: a number guessing game (1–20) practicing DOM manipulation, event handling, basic state management (`score`, `highScore`), and simple UI feedback.
+- `PigGame/`
+  - Mini project: two‑player dice game practicing DOM manipulation, state handling (`scores`, `currentScore`, `activePlayer`, `playing`), event handling, and simple UI state transitions.
 
 See each folder's `README.md` for details specific to that part.
 
@@ -19,7 +21,7 @@ See each folder's `README.md` for details specific to that part.
 - Optional: a local server (e.g., VS Code Live Server) for convenience
 
 ## How to run
-1. Open a folder (e.g., `fundamentals-1/`, `fundamentals-2/`, `Developer Skilss & Editor Set Up/`, or `GuessMyNumber/`).
+1. Open a folder (e.g., `fundamentals-1/`, `fundamentals-2/`, `Developer Skilss & Editor Set Up/`, `GuessMyNumber/`, or `PigGame/`).
 2. Open `index.html` in a browser.
 3. Open DevTools Console to view output.
 4. Uncomment specific sections in the corresponding `script.js` to run them (most files group topics in blocks). To avoid variable re-declaration errors, run one block at a time or wrap sections in their own scope `{ ... }`/function.
