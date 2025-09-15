@@ -183,7 +183,7 @@ const books = [
         highlighted: true
     }
 ];
-/*
+/**/
 //1.1 - Destructure the books array into two variables called firstBook and secondBook.
 const [firstBook, secondBook] = books;
 console.log(firstBook, secondBook);
@@ -208,7 +208,7 @@ const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRatings, threeStarRatings=0] = ratingStars;
 console.log(fiveStarRatings, oneStarRatings, threeStarRatings)
 
-*/
+
 
 
 //Destructuring Objects
@@ -258,3 +258,22 @@ console.log(bookTitle, bookAuthor);
 
 const { thirdParty: {goodreads:{rating:bookRating}}} = books[0]
 console.log(bookRating);
+
+//2.6 -Write a function called printBookInfo that has three parameters called title, author and year. This function should work for a single object passed as an argument, and it should log to the console information about the book in this format: "${title} by ${author}, ${year}".
+
+//If year is undefined(was not passed), it should be assigned with a default value of 'year unknown'.
+
+//example 1
+
+printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick', year: '2011' });
+
+function printBookInfo({ title, author, year = 'year unknown' }) {
+    console.log(`${title} by ${author}, ${year}`);
+}
+ 
+//example 2
+printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
+
+function printBookInfo({ title, author, year = 'year unknown' }) {
+    console.log(`${title} by ${author}, ${year}`);
+}
