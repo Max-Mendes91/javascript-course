@@ -390,7 +390,7 @@ Suppose we get data from a web service about a certain game (below). In this cha
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 
 GOOD LUCK 😀
-*/
+
 
 const game = {
     team1: 'Bayern Munich',
@@ -434,22 +434,26 @@ const game = {
 };
 
 
-
+//1
 const [players1, players2] = game.players
 console.log(players1, players2);
-
+//2
 const [gk, ...fieldPlayers] = players1
 console.log(gk, fieldPlayers);
-
+//3
 const allPlayers = [...players1, ...players2]
 console.log(allPlayers);
-
+//4
 const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic']
 console.log(players1Final);
-
+//5
 const { team1, x: draw, team2 } = game.odds;
 console.log(team1, draw, team2);
+//5 Jonas solution
+//const{odds: {team1, x:draw, team2}} = game
+//console.log(team1, draw, team2)
 
+//6
 const printGoals = function (...names) {
     for (let i = 0; i < names.length; i++) {
         console.log(names[i]);
@@ -458,6 +462,6 @@ const printGoals = function (...names) {
 }
 printGoals('Davies', 'Muller', 'Lewandowski' , 'Kimmich')
 printGoals(...game.scored);
-
+//7
 game.odds.team1 <=  game.odds.team2  && console.log(game.team1)
-
+*/
