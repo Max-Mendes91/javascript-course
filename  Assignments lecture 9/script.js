@@ -647,7 +647,7 @@ console.log(playerNames);
 
 
 const entries = [];
-for (const key of Object.keys(books[0].thirdParty.goodreads)){
+for (const key of Object.keys(books[0].thirdParty.goodreads)) {
     entries.push([key])
     console.log(key)
 }
@@ -659,7 +659,7 @@ for (const key of Object.keys(books[0].thirdParty.goodreads)){
 
 // Push each value to the appropriate inner array in the entries array(use index from entries()).
 
-for (const [index, value] of Object.values(books[0].thirdParty.goodreads).entries()){
+for (const [index, value] of Object.values(books[0].thirdParty.goodreads).entries()) {
     entries[index].push(value);
     console.log(index, value)
 }
@@ -675,3 +675,46 @@ console.log(entries2)
 // Log the entries and entries2 variables to the console, and compare them.They should look the same.
 
 console.log(`${entries}, ${entries2}`);
+
+// Sets
+// 12.1﻿
+// Below is the allKeywords variable, which stores an empty array.Loop over the books array, and fill the allKeywords array with the keywords coming from the keywords property of each book object.The allKeywords array should have just one level(no nested arrays).
+
+// Use whatever loop and methods you want.You can also use the spread syntax.In the end, the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].
+
+const allKeywords = [];
+
+for (const book of books) {
+    allKeywords.push(...book.keywords)
+    console.log(allKeywords);
+}
+
+// 12.2﻿
+// The allKeyword array contains duplicates.Remove them by creating a Set out of that array.Assign the newly created set to the uniqueKeywords variable.
+
+const uniqueKeywords = new Set([allKeywords]);
+console.log(uniqueKeywords);
+
+// 12.3﻿
+// Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.
+
+uniqueKeywords.add('coding');
+uniqueKeywords.add('science'); 
+console.log(uniqueKeywords);
+
+// 12.4﻿
+// Delete 'business' from the uniqueKeywords set.
+
+uniqueKeywords.delete('business');
+console.log(uniqueKeywords);
+
+// 12.5﻿
+// Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.
+const uniqueKeywordsArr = [...uniqueKeywords]
+console.log(uniqueKeywords);
+
+// 12.6﻿
+// Delete all items from the uniqueKeywords set.
+
+uniqueKeywords.clear();
+
