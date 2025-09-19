@@ -632,7 +632,7 @@ for (const [teamKey, oddsValue] of printOdds) {
     console.log(`Odd of  ${print} : ${oddsValue}`);
 }
 
-
+//bonus challange
 const playerNames = {};
 for (const p of game.scored) {
     playerNames[p] = (playerNames[p] || 0) + 1;
