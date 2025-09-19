@@ -628,7 +628,14 @@ console.log(odds);
 //3)
 const printOdds = Object.entries(game.odds);
 for (const [teamKey, oddsValue] of printOdds) {
-    const print = (teamKey === 'x' ? 'draw' :  'victory '  + game[teamKey])
-    console.log(`Odd of  ${print} : ${oddsValue}`)
+    const print = (teamKey === 'x' ? 'draw' : 'victory ' + game[teamKey])
+    console.log(`Odd of  ${print} : ${oddsValue}`);
 }
+
+
+const playerNames = {};
+for (const p of game.scored) {
+    playerNames[p] = (playerNames[p] || 0) + 1;
+}
+console.log(playerNames);
 
