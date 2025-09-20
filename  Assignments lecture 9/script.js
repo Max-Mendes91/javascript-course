@@ -638,7 +638,7 @@ for (const p of game.scored) {
 }
 console.log(playerNames);
 
-*/
+
 
 // 11.1﻿
 // Below is the entries variable that stores an empty array.Use the for-of loop together with the Object.keys() method to loop over the thirdParty.goodreads property(array) of the first book object from the books array.For each key, push a new array that contains that key to the entries array.
@@ -717,4 +717,31 @@ console.log(uniqueKeywords);
 // Delete all items from the uniqueKeywords set.
 
 uniqueKeywords.clear();
+*/
+
+
+// Maps: Fundamentals
+// 13.1﻿
+// Create a new book, but this time, as a Map.Assign it to the bookMap variable.Use this array as initial data:
+
+const bookMap = new Map(([['title', 'Clean Code'], ['author', 'Robert C. Martin']]));
+console.log(bookMap);
+
+// 13.2﻿
+// Set a new key in bookMap called pages, and assign it with a number 464.
+
+bookMap.set('pages', 464)
+
+// 13.3﻿
+// Get the title and author values from bookMap, and log to the console a string formatted like that: "${title} by ${author}".
+console.log(`"${bookMap.get('title')} by ${bookMap.get('author')}"`);
+
+// 13.4﻿
+// Get the size of bookMap, and log it to the console.
+console.log(bookMap.size);
+
+// 13.5﻿
+// Check if bookMap has the author key.and if so, log "The author of the book is known" to the console.
+
+if (bookMap.has('author')) console.log('The author is known');
 
