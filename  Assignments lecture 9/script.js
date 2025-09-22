@@ -801,8 +801,12 @@ const remainingEvents = gameEvents.size
 const avrg = 90 / remainingEvents
 console.log(`An event happened, on average, every ${avrg} minutes`);
 
-//4)
+//GET THE 92MIN 
 
+const time = [...gameEvents.keys()].pop()
+console.log(time);
+
+//4)
 for (const [minute, event] of gameEvents) {
     if (minute <= 45) {
         console.log(`[FIRST HALF] ${minute}: ${event}`)
@@ -810,3 +814,9 @@ for (const [minute, event] of gameEvents) {
     console.log(`[SECOND HALF] ${minute}: ${event}`)
 }
 }
+
+// //4) solution Jonas
+// for (const [min, event] of gameEvents){
+//     const half = min <= 45 ? 'FIRST' : 'SECOND'
+// console.log(`[HALF] ${min}: ${event}`);
+// }
