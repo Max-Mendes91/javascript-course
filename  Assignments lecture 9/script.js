@@ -898,7 +898,7 @@ function logBookTheme(title) {
         console.log('This book is about some systems, but definitely not about operating systems');}
     }
 
- */
+
 
 // 17.1﻿
 // Below is the bookCategories variable that stores a string of categories.Each category is separated with a semicolon, for example, in a string "science;computing", 'science' and 'computing' are separate categories.
@@ -969,3 +969,80 @@ const logBookChapters = function (bookChapters) {
     }
 }
 logBookChapters(bookChapters);
+ 
+
+
+// Coding Challenge #4
+
+
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+
+The input will come from a textarea inserted into the DOM(see code below), and conversion will happen when the button is pressed.
+
+THIS TEST DATA(pasted to textarea)
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+
+SHOULD PRODUCE THIS OUTPUT(5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+
+GOOD LUCK 😀
+*/
+
+
+// 1-toLowerCase() - convert everything to lowercase first
+// 2-Remove underscores and join the parts
+// 3-toUpperCase() - but specifically for the first letter of the second word(and beyond)
+
+// 1.1)Use slipt to divide the string of  the words in an array slipt('\n')
+// 1.2)remove extra space with trim();
+
+// CREATE TEXT AREA
+const textArea = document.createElement('textarea')
+textArea.placeholder = "Max"
+//ADD TEXTAREA TO HTML
+document.body.appendChild(textArea)
+
+//create button
+const btn = document.createElement('button');
+const node = document.createTextNode('click me')
+btn.appendChild(node)
+//add button to the HTML
+document.body.appendChild(btn)
+
+//GET BUTTON TO CLICK
+document.querySelector('button').addEventListener('click', function(){
+    const getValue = document.querySelector('textarea').value
+    const divedeWord = getValue.split('\n');
+    // console.log(divedeWord);
+    const cleanedArray = divedeWord.map(line => line.trim());
+    // console.log(cleanedArray)
+    let counter = 1;
+    for(const item of cleanedArray){
+        // console.log(item);
+        const itemSplit = item.split('_')
+        // console.log(itemSplit);
+        const itemLower = itemSplit[0].toLowerCase();
+        const itemUpper = itemSplit[1][0].toUpperCase();
+        const rest = itemSplit[1].slice(1).toLowerCase();
+        
+        const newItem = itemLower + itemUpper + rest
+        console.log(newItem + '✅'.repeat(counter));
+        
+        counter ++ ;
+}})
+
