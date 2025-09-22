@@ -845,7 +845,7 @@ function isContributor(author) {
     return author.lastIndexOf('(Contributor)') !== -1;
 } 
 console.log(isContributor('Julie Sussman (Contributor)'));
-*/
+
 
 // Working with Strings - Part 2
 // 16.1﻿
@@ -898,4 +898,55 @@ function logBookTheme(title) {
         console.log('This book is about some systems, but definitely not about operating systems');}
     }
 
-    
+ */
+
+// 17.1﻿
+// Below is the bookCategories variable that stores a string of categories.Each category is separated with a semicolon, for example, in a string "science;computing", 'science' and 'computing' are separate categories.
+
+// Write a function called logBookCategories that takes a string of categories separated with semicolons, and logs each category to the console(as separate strings).
+
+//     Example
+// Code:
+
+const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+
+
+const logBookCategories = function (bookCategories) {
+    const c = bookCategories.split(';')
+    for (const s of c)
+        console.log(s)
+}
+
+logBookCategories(bookCategories);
+
+// 17.2
+// Now, the opposite.Each book from the books array has the keywords property.
+
+// Write a function called getKeywordsAsString that takes the books array as an argument, collects keywords from each book, removes duplicates, and then joins them to create a single string where keywords are separated by a semicolon.
+
+//     Example
+// Code:
+
+
+//Expected output:
+
+//computer science; programming; algorithms;data structures; java; math; software; engineering; javascript;computer systems; C;operating systems; Java; mathematics; business; compilers; interpreters; work; focus;personal development
+
+const getKeywordsAsString = function (books) {
+    // Step 1: Collect all keywords from all books
+    const allKeywords = [];
+
+    // Step 2: Loop through each book
+    for (const book of books) {
+        // Step 3: Get keywords from this book and add them to our collection
+        for (const keyword of book.keywords) {
+            allKeywords.push(keyword);
+        }
+    }
+
+    // Step 4: Remove duplicates using Set
+    const uniqueKeywords = [...new Set(allKeywords)];
+
+    // Step 5: Join into a single string with semicolons
+    return uniqueKeywords.join(';');
+}
