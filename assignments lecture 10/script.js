@@ -271,3 +271,28 @@ document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer
 
 poll.displayResults('array', [5, 2, 3]);
 poll.displayResults('string', [1, 5, 3, 9, 6, 1])
+
+
+
+// example exercise to pratice the syntax and logic
+const max = {
+    arr: new Array(4).fill(0),
+    registerVote(input) {
+        this.arr[input]++
+        console.log(this.arr);
+        
+    },
+    displayResults(type = 'array', data = this.arr) {
+        const results = data;
+        if(type === 'string'){
+            console.log(`poll results are ${results.join(', ')}`);
+        }else {
+            console.log(results);
+                
+        }
+        ;
+    }
+}
+
+max.displayResults('array', [4, 4, 5]);
+max.displayResults('string', [5, 6, 7]);
