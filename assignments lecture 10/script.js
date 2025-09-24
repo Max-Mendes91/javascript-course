@@ -110,7 +110,7 @@ Steps:
 Create an object gym with a method register(name) that logs "name registered at gym" and adds the name to a members array.
 Create another object yogaStudio with a members array.
 Use register.call() to register people in both gym and yogaStudio without copying the method.
-*/
+
 
 const gym = {
     members:[],
@@ -127,3 +127,88 @@ const yogaStudio = {
 
 gym.register.call(gym, 'Max')
 gym.register.call(yogaStudio, 'john')
+
+
+Goal: Use.bind() to correctly handle this in an event listener and toggle a counter.
+Steps:
+Create an object airport with a property planes initialized to 50.
+Add a method buyPlane() that increments planes and logs the total planes.
+Add a method sellPlane() that decrements planes and logs the total planes.
+Create two buttons in HTML: .buy and.sell.
+Use addEventListener with .bind() so clicking the buttons updates the correct planes count.
+Twist: Don’t log directly in the method—make it toggle a message instead. For example, if planes > 50, log “More planes than usual”, else “Planes at normal level”.
+
+
+const airPort = {
+    planes: 50,
+    buyPlane() {
+        this.planes++
+        if (this.planes > 50){
+            console.log(`${this.planes}: More planes than usual`);
+        } else {
+            console.log('Planes at normal level');
+        }
+
+
+    },
+    sellPlane() {
+        this.planes--
+        if(this.planes <= 50){
+            console.log(`${this.planes}: Planes at normal level`);
+            
+        }
+    }
+
+}
+
+document.querySelector('.buy').addEventListener('click', airPort.buyPlane.bind(airPort));
+document.querySelector('.sell').addEventListener('click', airPort.sellPlane.bind(airPort));
+
+
+Goal: Practice partial application using.bind() or closures.
+Steps:
+Create a function calculateTax(rate, value) that returns value + value * rate.
+Use.bind() to create addVAT for a fixed rate of 0.2.
+Create a second version addGST using a closure function approach(function(rate) { return function (value) {... } }) with a rate of 0.1.
+Create an array of prices, e.g., [100, 250, 400].
+Map the array using addVAT and addGST, but instead of logging directly, toggle the display by using a button .show-tax to reveal results.
+*/
+
+const calculateTax = function (rate, value) {
+    return value + value * rate
+}
+console.log(calculateTax(0.2, 100))
+
+
+const addVAT = calculateTax.bind(null, 0.2);
+console.log(addVAT(100));
+
+
+const addGST = function (rate) {
+    return function (value) {
+        return value + value * rate
+    }
+}
+const gstCalculator = addGST(0.1);  // Create function with 10% rate
+console.log(gstCalculator(100));
+
+
+const box = document.createElement('div')
+document.body.appendChild(box)
+
+
+function showTaxes() {
+    if (box.textContent) {
+        box.textContent = ''; // hide
+    } else {
+        box.textContent = `VAT: ${priceWithVat.join(', ')} | GST: ${pricesWithGST.join(', ')}`; // show
+    }
+}
+
+const prices = [100, 250, 400]
+const priceWithVat = prices.map(addVAT);
+const pricesWithGST = prices.map(gstCalculator);
+const combinePrices = priceWithVat.concat(pricesWithGST);
+
+
+document.querySelector('.show-tax').addEventListener('click', showTaxes);
