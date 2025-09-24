@@ -24,15 +24,20 @@
         color: white;
     }
 
-    button {
-        width: 50px;
-        height: 20px;
-        margin: 10px;
+    .buy,
+    .poll {
+        font-size: 1.6rem;
+        padding: 1rem 2rem;
+        position: absolute;
+        top: 2rem;
     }
 
-    textarea {
-        width: 300px;
-        height: 100px;
+    .buy {
+        left: 2rem;
+    }
+
+    .poll {
+        right: 2rem;
     }
 </style>
 </head>
@@ -43,6 +48,7 @@
     <button class="sell">Sell Plane</button>
     <button class="show-tax">Show Taxes</button>
     <div class="results"></div>
+    <button class="poll">Answer poll ⁉️</button>
     <script src="script.js"></script>
 </body>
 
