@@ -242,7 +242,7 @@ BONUS TEST DATA 1: [5, 2, 3]
 BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
 GOOD LUCK 😀
- */
+
 
 
 const poll = {
@@ -254,7 +254,7 @@ const poll = {
         //GET THE ANSWER
         const input = Number(prompt(`${this.question}\n${this.options.join('\n')}\n(Write option number)`));
 
-        
+
         //REGISTER THE ANSWER
         if (input >= 0 && input < this.answers.length) {
             this.answers[input]++
@@ -286,7 +286,7 @@ poll.displayResults('string', [1, 5, 3, 9, 6, 1])
 //     registerVote(input) {
 //         this.arr[input]++
 //         console.log(this.arr);
-        
+
 //     },
 //     displayResults(type = 'array', data = this.arr) {
 //         const results = data;
@@ -294,7 +294,7 @@ poll.displayResults('string', [1, 5, 3, 9, 6, 1])
 //             console.log(`poll results are ${results.join(', ')}`);
 //         }else {
 //             console.log(results);
-                
+
 //         }
 //         ;
 //     }
@@ -302,3 +302,26 @@ poll.displayResults('string', [1, 5, 3, 9, 6, 1])
 
 // max.displayResults('array', [4, 4, 5]);
 // max.displayResults('string', [5, 6, 7]);
+
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+This is more of a thinking challenge than a coding challenge 🤓
+
+Take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element ('header') to blue, each time the BODY element is clicked. Do NOT select the h1 element again!
+
+And now explain to YOURSELF (or someone around you) WHY this worked! Take all the time you need. Think about WHEN exactly the callback function is executed, and what that means for the variables involved in this example.
+
+GOOD LUCK 😀
+*/
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+  
+  document.querySelector('body').addEventListener('click', function() { header.style.color = 'blue'; });
+    })();
+
+
+  
