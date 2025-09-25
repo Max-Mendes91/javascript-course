@@ -251,13 +251,19 @@ const poll = {
     // This generates [0, 0, 0, 0]. More in the next section 😃
     answers: new Array(4).fill(0),
     registerNewAnswer() {
-        const input = Number(prompt(`${this.question}\n${this.options.join('\n')}`));
+        //GET THE ANSWER
+        const input = Number(prompt(`${this.question}\n${this.options.join('\n')}\n(Write option number)`));
+
+        
+        //REGISTER THE ANSWER
         if (input >= 0 && input < this.answers.length) {
             this.answers[input]++
         }
         this.displayResults();
         this.displayResults('string')
     },
+
+    
     displayResults(type = 'array', data = this.answers) {
         const results = data;
         if (type === 'string') {
@@ -275,24 +281,24 @@ poll.displayResults('string', [1, 5, 3, 9, 6, 1])
 
 
 // example exercise to pratice the syntax and logic
-const max = {
-    arr: new Array(4).fill(0),
-    registerVote(input) {
-        this.arr[input]++
-        console.log(this.arr);
+// const max = {
+//     arr: new Array(4).fill(0),
+//     registerVote(input) {
+//         this.arr[input]++
+//         console.log(this.arr);
         
-    },
-    displayResults(type = 'array', data = this.arr) {
-        const results = data;
-        if(type === 'string'){
-            console.log(`poll results are ${results.join(', ')}`);
-        }else {
-            console.log(results);
+//     },
+//     displayResults(type = 'array', data = this.arr) {
+//         const results = data;
+//         if(type === 'string'){
+//             console.log(`poll results are ${results.join(', ')}`);
+//         }else {
+//             console.log(results);
                 
-        }
-        ;
-    }
-}
+//         }
+//         ;
+//     }
+// }
 
-max.displayResults('array', [4, 4, 5]);
-max.displayResults('string', [5, 6, 7]);
+// max.displayResults('array', [4, 4, 5]);
+// max.displayResults('string', [5, 6, 7]);
