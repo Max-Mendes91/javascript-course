@@ -314,7 +314,6 @@ Take the IIFE below and at the end of the function, attach an event listener tha
 And now explain to YOURSELF (or someone around you) WHY this worked! Take all the time you need. Think about WHEN exactly the callback function is executed, and what that means for the variables involved in this example.
 
 GOOD LUCK 😀
-*/
 
 (function () {
   const header = document.querySelector('h1');
@@ -324,4 +323,45 @@ GOOD LUCK 😀
     })();
 
 
-  
+Create a function 'checkDogs', which accepts 2 arrays of dog's ages ('dogsJulia' and 'dogsKate'), and does the following things:
+
+1. Julia found out that the owners of the FIRST and the LAST TWO dogs actually have cats, not dogs! So create a shallow copy of Julia's array, and remove the cat ages from that copied array (because it's a bad practice to mutate function parameters)
+2. Create an array with both Julia's (corrected) and Kate's data
+3. For each remaining dog, log to the console whether it's an adult ("Dog number 1 is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy 🐶")
+4. Run the function for both test datasets
+
+HINT: Use tools from all lectures in this section so far 😉
+
+TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data[4, 1, 15, 8, 3]
+TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data[10, 5, 6, 1, 4]
+
+GOOD LUCK 😀
+*/
+const checkDogs = function (dogsJulia, dogsKate) {
+    // 1. Make a shallow copy of dogsJulia
+    const juliaCopy = [...dogsJulia];
+
+    // 2. Remove the first and last two elements from the copy
+    const juliaCorrected = juliaCopy.slice(1, -2);
+    // 3. Merge the corrected Julia data with dogsKate
+
+    const merged = juliaCorrected.concat(dogsKate);
+    // 4. Loop over the merged array
+
+    merged.forEach(function (dog, i, arr) {
+        if (dog >= 3) {
+            console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
+
+        } else {
+            console.log(`Dog number ${i + 1} is still a puppy 🐶`);
+
+        }
+    })
+    // 5. Inside the loop, check if age >= 3
+    //    - if yes: log "Dog number X is an adult, and is AGE years old"
+    //    - else: log "Dog number X is still a puppy 🐶"
+};
+
+// Run the function with test data
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
