@@ -382,7 +382,7 @@ checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
 
 const calcAverageHumanAge = function (ages) {
     // 1. Map dog ages to human ages
-    //    hint: use map()
+    
     //    rule: if age <= 2 → 2 * age, else → 16 + age * 4
     const dogAges = ages.map(function(age){
         if(age <= 2 ){
@@ -393,12 +393,12 @@ const calcAverageHumanAge = function (ages) {
         })
     
     // 2. Filter out dogs with human age < 18
-    //    hint: use filter()
+    
        const dogsHumanAge = dogAges.filter(function(age){
         return age >= 18
         }) 
     // 3. Calculate the average of remaining human ages
-    //    hint: use reduce() to sum, then divide by length
+    //    
         const sum = dogsHumanAge.reduce((acc, curr) => acc + curr, 0)
         const average = sum / dogsHumanAge.length
     // 4. Return or log the average
