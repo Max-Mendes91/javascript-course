@@ -336,7 +336,7 @@ TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data[4, 1, 15, 8, 3]
 TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data[10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
-*/
+
 const checkDogs = function (dogsJulia, dogsKate) {
     // 1. Make a shallow copy of dogsJulia
     const juliaCopy = [...dogsJulia];
@@ -348,7 +348,8 @@ const checkDogs = function (dogsJulia, dogsKate) {
     const merged = juliaCorrected.concat(dogsKate);
     // 4. Loop over the merged array
 
-    merged.forEach(function (dog, i, arr) {
+    merged.forEach(function (dog, i) {
+        // 5. Inside the loop, check if age >= 3
         if (dog >= 3) {
             console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
 
@@ -357,11 +358,9 @@ const checkDogs = function (dogsJulia, dogsKate) {
 
         }
     })
-    // 5. Inside the loop, check if age >= 3
-    //    - if yes: log "Dog number X is an adult, and is AGE years old"
-    //    - else: log "Dog number X is still a puppy 🐶"
 };
 
 // Run the function with test data
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+*/
