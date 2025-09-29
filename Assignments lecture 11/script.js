@@ -315,14 +315,29 @@ console.log(`${ownersTooLittle.join(' and ')}'s dogs eat to little!`);
 
 
 // 5.Any exact eater ? → Use.some() to check if curFood === recFood.
+console.log(dogs.some( dog => dog.curFood === dog.recFood));
 
 
 // 6.All okay eaters ? → Use.every() with the condition(between 90 % and 110 % of recFood).
+console.log(dogs.every(dog => dog.curFood > dog.recFood * 0.90 && dog.curFood <  dog.recFood * 1.10));
+
 
 // 7.Array of okay eaters → Use.filter() with same condition as step 6.
+console.log(dogs.filter(dog => dog.curFood > dog.recFood * 0.90 && dog.curFood < dog.recFood * 1.10 ));
+
 
 // 8.Group by eating status → Use.reduce() to build an object with keys: exact, too - much, too - little.
+const eatingStatus = Object.groupBy(dogs, dog => dog.curFood === dog.recFood ? 'Exact' : dog.curFood > dog.recFood * 1.10 ? 'too-much' : 'too-little' )
+console.log(eatingStatus);
+
+
 
 // 9.Group by number of owners → Use.reduce() again, grouping dogs by owners.length.
+const numberOwners = Object.groupBy(dogs, dog => dog.owners.length)
+console.log(numberOwners);
+
 
 // 10.Sort by recFood → Use.slice()(to copy) + .sort() by recFood.
+const newSort = dogs.toSorted((a, b) => a.recFood - b.recFood)
+console.log(newSort);
+
