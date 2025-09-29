@@ -182,8 +182,8 @@ console.log(averageWeightHusky);
 //     Inside, check breed.activities.includes('running') && breed.activities.includes('fetch').
 const dogBothActivities = breeds
     .find(breed => breed.activities
-    .includes('running') && breed.activities
-    .includes('fetch'))
+        .includes('running') && breed.activities
+            .includes('fetch'))
 console.log(dogBothActivities.breed);
 
 // 3.Create allActivities
@@ -206,23 +206,25 @@ console.log([...uniqueActivities]);
 // Then collect all their activities(flatMap again).
 //     Remove 'swimming' itself.
 // Deduplicate with Set.
-let swimmingAdjacent = breeds
-    .filter(breed => breed.activities
-    .includes('swimming'))
-    .flatMap(breed => breed.activities).filter(activity => activity !== 'swimming')
-swimmingAdjacent = new Set([...swimmingAdjacent]);
+let swimmingAdjacent = [
+    ...new Set(
+        breeds
+            .filter(breed => breed.activities
+                .includes('swimming'))
+            .flatMap(breed => breed.activities)
+            .filter(activity => activity !== 'swimming')
+    )
+];
+console.log(swimmingAdjacent);
+
 
 
 // 6. Do all breeds weigh ≥ 10 ?
 //     Use every().
-
-
 console.log(breeds.every(breed => breed.averageWeight >= 10));
 
 //  7. Any “active” breed(≥ 3 activities) ?
 //  Use some().
-
-
 console.log(breeds.some(breed => breed.activities.length >= 3));
 
 
