@@ -180,7 +180,10 @@ console.log(averageWeightHusky);
 // 2. Find the breed that likes both "running" and "fetch"
 // Again, find() works here.
 //     Inside, check breed.activities.includes('running') && breed.activities.includes('fetch').
-const dogBothActivities = breeds.find(breed => breed.activities.includes('running') && breed.activities.includes('fetch'))
+const dogBothActivities = breeds
+    .find(breed => breed.activities
+    .includes('running') && breed.activities
+    .includes('fetch'))
 console.log(dogBothActivities.breed);
 
 // 3.Create allActivities
@@ -205,7 +208,7 @@ console.log([...uniqueActivities]);
 // Deduplicate with Set.
 let swimmingAdjacent = breeds
     .filter(breed => breed.activities
-        .includes('swimming'))
+    .includes('swimming'))
     .flatMap(breed => breed.activities).filter(activity => activity !== 'swimming')
 swimmingAdjacent = new Set([...swimmingAdjacent]);
 
