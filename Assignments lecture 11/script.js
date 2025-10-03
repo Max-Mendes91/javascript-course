@@ -341,3 +341,15 @@ console.log(numberOwners);
 const newSort = dogs.toSorted((a, b) => a.recFood - b.recFood)
 console.log(newSort);
 
+
+//LECTURE 12 - PRINT TO THE CONSOLE A CLOCK 
+//setInterval
+setInterval(function () {
+    let now = new Date()
+    now = {
+        hour: now.getHours(),
+        min: `${now.getMinutes()}`.padStart(2, 0),
+        sec: `${now.getSeconds()}`.padStart(2, 0),
+    };
+    console.log(`Now is ${now.hour}h:${now.min}m:${now.sec}s`);
+}, 1000);
