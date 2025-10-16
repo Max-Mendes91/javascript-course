@@ -11,3 +11,21 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 
 GOOD LUCK 😀 */
 
+const Car = function (make, speed) {
+    this.make = make;
+    this.speed = speed;
+};
+
+Car.prototype.accelerate = function () { // correct spelling
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+};
+
+Car.prototype.brake = function () {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+};
+
+const bmw = new Car('BMW', 120);
+bmw.accelerate();
+bmw.brake();
