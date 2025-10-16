@@ -156,187 +156,186 @@ if(!neighbours.includes('Germany')){
 neighbours[neighbours.indexOf('Sweden')] = 'Republic of Sweden;';
 console.log(neighbours);
 
-//Introduction to Objects﻿
+//Introduction to Objects﻿*/
 
-myCountry = {
-    country: 'Portugal',
-    capital: 'Lisbon',
-    languague: 'Portuguese',
-    population: 33,
-    neighbors: ['Spain', 'Acores', 'Madeira']
-}
+// myCountry = {
+//     country: 'Portugal',
+//     capital: 'Lisbon',
+//     languague: 'Portuguese',
+//     population: 33,
+//     neighbors: ['Spain', 'Acores', 'Madeira']
+// }
 
-//Dot vs.Bracket Notation
+// //Dot vs.Bracket Notation
 
-console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length}  neighbouring countries and a capital called ${myCountry.capital}.`)
+// console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length}  neighbouring countries and a capital called ${myCountry.capital}.`)
 
-myCountry.population += 2;
-console.log(myCountry.population);
+// myCountry.population += 2;
+// console.log(myCountry.population);
 
-myCountry['population'] -= 2;
-console.log(myCountry.population)
+// myCountry['population'] -= 2;
+// console.log(myCountry.population)
 
-//Object Methods
+// //Object Methods
 
-myCountry = {
-    country: 'Portugal',
-    capital: 'Lisbon',
-    languague: 'Portuguese',
-    population: 33,
-    neighbors: ['Spain', 'Acores', 'Madeira'],
-    describre: function() {
-        console.log(`${this.country} has ${this.population} million ${this.languague}-speaking people, ${this.neighbors.length} neighbouring countries and a capital called ${this.capital}.`)
-    },
+// myCountry = {
+//     country: 'Portugal',
+//     capital: 'Lisbon',
+//     languague: 'Portuguese',
+//     population: 33,
+//     neighbors: ['Spain', 'Acores', 'Madeira'],
+//     describre: function() {
+//         console.log(`${this.country} has ${this.population} million ${this.languague}-speaking people, ${this.neighbors.length} neighbouring countries and a capital called ${this.capital}.`)
+//     },
 
-    checkIsland: function () {
-        this.isIsland = this.neighbors.length === 0 ? true : false;
-    }
-}
+//     checkIsland: function () {
+//         this.isIsland = this.neighbors.length === 0 ? true : false;
+//     }
+// }
 
-myCountry.describre();
-myCountry.checkIsland();
+// myCountry.describre();
+// myCountry.checkIsland();
 
-console.log(myCountry);
-
-
-//CHALLENGE #2 -Fundamentals part 2
-// const tip = (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
-
-const calcTip = function (bill) {
-    if (bill >= 50 && bill <= 300) {
-        return bill * 0.15;
-
-    } else
-    return bill * 0.20;
-}
-
-console.log(calcTip(300))
+// console.log(myCountry);
 
 
-const bills = [125, 555, 44];
-const tips = [(calcTip(bills[0])), calcTip(bills[1]), calcTip(bills[2])];
-console.log(bills, tips)
+// //CHALLENGE #2 -Fundamentals part 2
+// // const tip = (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
 
-const totals = [(bills[0] + tips[0]), (bills[1] + tips[1]), (bills[2] + tips[2])];
-console.log(totals)
+// const calcTip = function (bill) {
+//     if (bill >= 50 && bill <= 300) {
+//         return bill * 0.15;
 
-CHALLENGE #2 -Fundamentals part 2 JONAS SOLUTION
-const calcTip = function(bill){
-    return bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.20;    
-}
-//arrow function 
-// const calTip = bill => bill >= 50 %% bill <= 300 ? bill * 0.15 : bill * 0.2;
+//     } else
+//     return bill * 0.20;
+// }
 
-const bills = [125, 555, 44];
-const tips = [(calcTip(bills[0])), calcTip(bills[1]), calcTip(bills[2])];
-const totals = [bills[0] + tips[0], bills[0]+ tips[0], bills[0] + tips[0]];
-console.log(bills, tips, totals);
+// console.log(calcTip(300))
 
 
-//CHALLENGE #3 - Fundamentals part 2
+// const bills = [125, 555, 44];
+// const tips = [(calcTip(bills[0])), calcTip(bills[1]), calcTip(bills[2])];
+// console.log(bills, tips)
 
-const mark = {
-    fullName: 'Mark Miller',
-    mass: 72,
-    height: 1.71,
+// const totals = [(bills[0] + tips[0]), (bills[1] + tips[1]), (bills[2] + tips[2])];
+// console.log(totals)
 
-    calcBMI: function () {
-        this.bmi = this.mass / (this.height * this.height)
-        return this.bmi;
-    }
-}
+// CHALLENGE #2 -Fundamentals part 2 JONAS SOLUTION
+// const calcTip = function(bill){
+//     return bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.20;    
+// }
+// //arrow function 
+// // const calTip = bill => bill >= 50 %% bill <= 300 ? bill * 0.15 : bill * 0.2;
 
-const john = {
-    fullName: 'John Smith',
-    mass: 92,
-    height: 1.95,
-
-    calcBMI: function() {
-        this.bmi = this.mass / (this.height * this.height)
-        return this.bmi;
-    } 
-}
-
-mark.calcBMI();
-john.calcBMI();
-if (mark.bmi > john.bmi){
-    winner = mark
-    loser = john
-    } else {
-    winner = john
-    loser = mark
-}
-console.log(`${winner.fullName}'s BMI (${winner.bmi.toFixed()}) is higher than ${loser.fullName}'s (${loser.bmi.toFixed()})!`);
+// const bills = [125, 555, 44];
+// const tips = [(calcTip(bills[0])), calcTip(bills[1]), calcTip(bills[2])];
+// const totals = [bills[0] + tips[0], bills[0]+ tips[0], bills[0] + tips[0]];
+// console.log(bills, tips, totals);
 
 
-//Iteration: The for Loop    'Voter number 1 is currently voting'.
+// //CHALLENGE #3 - Fundamentals part 2
 
-for( let vote = 1; vote <= 50; vote++){
-    console.log(`Voter number ${vote} is currently voting`);
-}
+// const mark = {
+//     fullName: 'Mark Miller',
+//     mass: 72,
+//     height: 1.71,
 
-//Looping Arrays, Breaking and Continuing
+//     calcBMI: function () {
+//         this.bmi = this.mass / (this.height * this.height)
+//         return this.bmi;
+//     }
+// }
 
-const populations = [10, 1441, 332, 83];
-const percentages2= [];
+// const john = {
+//     fullName: 'John Smith',
+//     mass: 92,
+//     height: 1.95,
 
-function percentageOfWorld1(population) {
-    return 7900 / population;
-}
+//     calcBMI: function() {
+//         this.bmi = this.mass / (this.height * this.height)
+//         return this.bmi;
+//     } 
+// }
 
-console.log(populations.length === 4);
-const percentages = [
-    percentageOfWorld1(populations[0]),
-    percentageOfWorld1(populations[1]),
-    percentageOfWorld1(populations[2]),
-    percentageOfWorld1(populations[3])
-];
-
-console.log(percentages);
-
-for( let i = 0; i < populations.length; i++){
-    const perc = percentageOfWorld1(populations[i]);
-    percentages2.push(perc);
-}
-console.log(percentages2);
-
-
-//Looping Backwards and Loops in Loops
-
-const listOfNeighbors = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
-
-for (let i = 0; i < listOfNeighbors.length; i++){
-    for (let y = 0; y < listOfNeighbors[i].length; y++)
-        console.log(`Neighbors: ${listOfNeighbors[i][y]}`);
-}
+// mark.calcBMI();
+// john.calcBMI();
+// if (mark.bmi > john.bmi){
+//     winner = mark
+//     loser = john
+//     } else {
+//     winner = john
+//     loser = mark
+// }
+// console.log(`${winner.fullName}'s BMI (${winner.bmi.toFixed()}) is higher than ${loser.fullName}'s (${loser.bmi.toFixed()})!`);
 
 
-//CHALLENGE #4 - Fundamentals part 2
+// //Iteration: The for Loop    'Voter number 1 is currently voting'.
+
+// for( let vote = 1; vote <= 50; vote++){
+//     console.log(`Voter number ${vote} is currently voting`);
+// }
+
+// //Looping Arrays, Breaking and Continuing
+
+// const populations = [10, 1441, 332, 83];
+// const percentages2= [];
+
+// function percentageOfWorld1(population) {
+//     return 7900 / population;
+// }
+
+// console.log(populations.length === 4);
+// const percentages = [
+//     percentageOfWorld1(populations[0]),
+//     percentageOfWorld1(populations[1]),
+//     percentageOfWorld1(populations[2]),
+//     percentageOfWorld1(populations[3])
+// ];
+
+// console.log(percentages);
+
+// for( let i = 0; i < populations.length; i++){
+//     const perc = percentageOfWorld1(populations[i]);
+//     percentages2.push(perc);
+// }
+// console.log(percentages2);
 
 
-const calcTip = function (bill) {
-    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-}
+// //Looping Backwards and Loops in Loops
 
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-const tips = [];
-const total = [];
+// const listOfNeighbors = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
 
-for ( let i = 0; i < bills.length; i++){
-    tips.push(calcTip(bills[i])); 
-    total.push(bills[i] + tips[i]);
-}
-console.log("Tips:", tips);
-console.log("Totals:", total);
+// for (let i = 0; i < listOfNeighbors.length; i++){
+//     for (let y = 0; y < listOfNeighbors[i].length; y++)
+//         console.log(`Neighbors: ${listOfNeighbors[i][y]}`);
+// }
 
 
+// //CHALLENGE #4 - Fundamentals part 2
 
-let sum = 0;
-const totals =[26.4, 339.25, 202.4, 528, 44.4, 120.75, 12, 1320, 98.9, 59.8];
 
-for ( a = 0 ; a < totals.length; a++){
-    (sum = sum + totals[a])
+// const calcTip = function (bill) {
+//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// }
 
-}
-console.log(sum / totals.length);
-*/
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const tips = [];
+// const total = [];
+
+// for ( let i = 0; i < bills.length; i++){
+//     tips.push(calcTip(bills[i])); 
+//     total.push(bills[i] + tips[i]);
+// }
+// console.log("Tips:", tips);
+// console.log("Totals:", total);
+
+
+
+// let sum = 0;
+// const totals =[26.4, 339.25, 202.4, 528, 44.4, 120.75, 12, 1320, 98.9, 59.8];
+
+// for ( a = 0 ; a < totals.length; a++){
+//     (sum = sum + totals[a])
+
+// }
+// console.log(sum / totals.length);
