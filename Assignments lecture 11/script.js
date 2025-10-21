@@ -278,11 +278,11 @@ GOOD LUCK 😀
 
 
 const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John', 'Leo'] },
-  { weight: 18, curFood: 244, owners: ['Joe'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] },
+    { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+    { weight: 8, curFood: 200, owners: ['Matilda'] },
+    { weight: 13, curFood: 275, owners: ['Sarah', 'John', 'Leo'] },
+    { weight: 18, curFood: 244, owners: ['Joe'] },
+    { weight: 32, curFood: 340, owners: ['Michael'] },
 ];
 
 // 1.Add recFood property → Use.forEach() since we want to mutate each dog object, not create a new array.
@@ -315,19 +315,19 @@ console.log(`${ownersTooLittle.join(' and ')}'s dogs eat to little!`);
 
 
 // 5.Any exact eater ? → Use.some() to check if curFood === recFood.
-console.log(dogs.some( dog => dog.curFood === dog.recFood));
+console.log(dogs.some(dog => dog.curFood === dog.recFood));
 
 
 // 6.All okay eaters ? → Use.every() with the condition(between 90 % and 110 % of recFood).
-console.log(dogs.every(dog => dog.curFood > dog.recFood * 0.90 && dog.curFood <  dog.recFood * 1.10));
+console.log(dogs.every(dog => dog.curFood > dog.recFood * 0.90 && dog.curFood < dog.recFood * 1.10));
 
 
 // 7.Array of okay eaters → Use.filter() with same condition as step 6.
-console.log(dogs.filter(dog => dog.curFood > dog.recFood * 0.90 && dog.curFood < dog.recFood * 1.10 ));
+console.log(dogs.filter(dog => dog.curFood > dog.recFood * 0.90 && dog.curFood < dog.recFood * 1.10));
 
 
 // 8.Group by eating status → Use.reduce() to build an object with keys: exact, too - much, too - little.
-const eatingStatus = Object.groupBy(dogs, dog => dog.curFood === dog.recFood ? 'Exact' : dog.curFood > dog.recFood * 1.10 ? 'too-much' : 'too-little' )
+const eatingStatus = Object.groupBy(dogs, dog => dog.curFood === dog.recFood ? 'Exact' : dog.curFood > dog.recFood * 1.10 ? 'too-much' : 'too-little')
 console.log(eatingStatus);
 
 
