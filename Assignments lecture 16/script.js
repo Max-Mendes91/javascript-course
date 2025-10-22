@@ -103,9 +103,95 @@ Set the network speed to 'Fast 3G' in the dev tools Network tab, otherwise image
 GOOD LUCK 😀
 */
 
-const createImage = function(imgPath){
-  return new Promise()
+const btn = document.querySelector('.btn-country');
+const body = document.querySelector('body')
+let currrentImg;
+
+const countriesContainer = document.querySelector('.countries');
+const renderCountry = function (data, className = '') {
+  const html = `
+  <article class="country ${className}">
+    <img class="country__img" src="${data.flag}" />
+    <div class="country__data">
+      <h3 class="country__name">${data.name}</h3>
+      <h4 class="country__region">${data.region}</h4>
+      <p class="country__row"><span>👫</span>${(
+      +data.population / 1000000
+    ).toFixed(1)} people</p>
+      <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+      <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+    </div>
+  </article>
+  `;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+function wait(seconds) {
+  return new Promise(resolve => setTimeout(resolve, seconds * 1000))
 }
 
+const createImage = function (imgPath) {
+  return new Promise(function (resolve, reject) {
+
+    const img = document.createElement('img')
+    img.src = imgPath;
+
+    img.addEventListener('load', function () {
+      body.appendChild(img)
+      body.classList.add('hidden');
+      resolve(img)
+
+    })
+
+
+    img.addEventListener('error', function () {
+      reject(new Error('Image not loaded'));
+    })
+
+  })
+
+}
+
+
+createImage('img/img-1.jpg')
+  .then(img => {
+    currrentImg = img;
+    return wait(2);
+  })
+  .then(() => {
+    currrentImg.style.display = 'none'
+    return createImage('img/img-2.jpg')
+  })
+  .then(img => {
+    currrentImg = img;
+    return wait(2);
+  })
+  .then(() => {
+    currrentImg.style.display = 'none'
+    return createImage('img/img-3.jpg')
+  })
+  .then(img => {
+    currrentImg = img;
+    return wait(2);
+  })
+  .then(() => {
+    currrentImg.style.display = 'none'
+  })
+  .catch(err => console.log(err));
+
+
+
+btn.addEventListener('click', function () {
+  console.log('click');
+
+});
+
+
+
+btn.addEventListener('click', function () {
+  console.log('click');
+
+});
 
 
