@@ -215,6 +215,11 @@ GOOD LUCK 😀
 */
 
 
+function wait(seconds) {
+  return new Promise(resolve => setTimeout(resolve, seconds * 1000))
+}
+
+
 const createImage = function (imgPath) {
   return new Promise(function (resolve, reject) {
 
@@ -236,3 +241,29 @@ const createImage = function (imgPath) {
   })
 
 }
+
+let currentImg;
+
+async function loadNPause() {
+  try {
+    let img = awawit createImage('img/img-1.jpg');
+    currentImg = img;
+    await wait(2)
+    currentImg.style.display = 'none';
+
+    let img = awawit createImage('img/img-2.jpg');
+    currentImg = img;
+    await wait(2)
+    currentImg.style.display = 'none';
+
+    let img = awawit createImage('img/img-3.jpg');
+    currentImg = img;
+    await wait(2)
+    currentImg.style.display = 'none';
+
+  }
+  .catch (err) {
+    console.error(err);
+
+  }
+} 
