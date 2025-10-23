@@ -213,7 +213,9 @@ TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn of
 
 GOOD LUCK 😀
 */
-
+const btn = document.querySelector('.btn-country');
+const body = document.querySelector('body')
+let currentImg;
 
 function wait(seconds) {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000))
@@ -242,28 +244,43 @@ const createImage = function (imgPath) {
 
 }
 
-let currentImg;
+
 
 async function loadNPause() {
   try {
-    let img = awawit createImage('img/img-1.jpg');
+    let img = await createImage('img/img-1.jpg');
     currentImg = img;
-    await wait(2)
+    await wait(2);
     currentImg.style.display = 'none';
 
-    let img = awawit createImage('img/img-2.jpg');
+    img = await createImage('img/img-2.jpg');
     currentImg = img;
-    await wait(2)
+    await wait(2);
     currentImg.style.display = 'none';
 
-    let img = awawit createImage('img/img-3.jpg');
+    img = await createImage('img/img-3.jpg');
     currentImg = img;
-    await wait(2)
+    await wait(2);
     currentImg.style.display = 'none';
-
-  }
-  .catch (err) {
+  } catch (err) {
     console.error(err);
-
   }
-} 
+}
+
+async function loadAll(imgArr) {
+  try {
+    const imgs = imgArr.map(async path => await createImage(path));
+    const imgElements = await Promise.all(imgs);
+    imgElements.forEach(img => img.classList.add('parallel'));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+btn.addEventListener('click', function () {
+  console.log('click');
+
+});
+
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg'])
