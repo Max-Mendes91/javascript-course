@@ -214,7 +214,7 @@ TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn of
 GOOD LUCK 😀
 */
 const btn = document.querySelector('.btn-country');
-const body = document.querySelector('body')
+const imgContainer = document.querySelector('.images');
 let currentImg;
 
 function wait(seconds) {
@@ -229,8 +229,8 @@ const createImage = function (imgPath) {
     img.src = imgPath;
 
     img.addEventListener('load', function () {
-      body.appendChild(img)
-      body.classList.add('hidden');
+      imgContainer.appendChild(img)
+      imgContainer.classList.add('hidden');
       resolve(img)
 
     })
@@ -283,4 +283,5 @@ btn.addEventListener('click', function () {
 
 });
 
+// loadNPause(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg'])
 loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg'])
